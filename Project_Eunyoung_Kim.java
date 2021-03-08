@@ -10,7 +10,9 @@ public class Project_Eunyoung_Kim
       int resolution = 0;
       double multiplier = 0.0;
       double performance = 0.0;
+      String sResolution = "";
       String gRecommend = "";
+      String memory = "Computer Hardware Graphics Quality Recommendation Tool";
       
       //Create a Scanner object to read input
       Scanner input = new Scanner(System.in);
@@ -35,22 +37,29 @@ public class Project_Eunyoung_Kim
       {
          case 1:
             multiplier = 1.0;
+            sResolution = "1280 x 720";
             break;
          case 2:
             multiplier = 0.75;
+            sResolution = "1920 x 1080";
             break;
          case 3:
             multiplier = 0.55;
+            sResolution = "2560 x 1440";
             break;
          case 4:
             multiplier = 0.35;
+            sResolution = "3840 x 2160";
             break;
          default:
             multiplier = 0.0;
+            sResolution = "";
       }
       
+      //Calculate the performance score
       performance = ((5 * gSpeed) + (cCore * cSpeed)) * multiplier;
       
+      //Determine The Recommended Graphics Quality by the performance score
       if(performance > 17000){
          gRecommend = "Ultra";
       }else if(performance > 15000){
@@ -62,5 +71,13 @@ public class Project_Eunyoung_Kim
       }else{
          gRecommend = "Unable to play";
       }
+      
+      System.out.println(memory + 
+                         "\nThe GPU clock speed: " + gSpeed + " MHz" +
+                         "\nThe CPU clock speed: " + cSpeed + " MHz" +
+                         "\nThe number of cores: " + cCore +
+                         "\nThe Monitor Resolution: " + sResolution +
+                         "\nThe Performance Score: " + String.format("%,.3f", performance) +
+                         "\nThe Recommended Graphics Quality: " + gRecommend);
    }
 }
