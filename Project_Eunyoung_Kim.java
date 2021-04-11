@@ -10,7 +10,9 @@ public class Project_Eunyoung_Kim
           resolution = 0,
           numComputer = 0;
       double multiplier = 0.0,
-             performance = 0.0;
+             performance = 0.0,
+             highPerformance = 0.0,
+             lowPerformance = 0.0;
       String sResolution = "",
              gRecommend = "",
              memory = "Computer Hardware Graphics Quality Recommendation Tool";
@@ -82,6 +84,18 @@ public class Project_Eunyoung_Kim
          //Calculate the performance score
          performance = ((5 * gSpeed) + (cCore * cSpeed)) * multiplier;
          
+         if(i==0){
+            highPerformance = performance;
+            lowPerformance = performance;
+         }else{
+            if(performance > highPerformance){
+               highPerformance = performance;
+            }
+            if(performance < lowPerformance){
+               lowPerformance = performance;
+            }
+         }
+         
          //Determine The Recommended Graphics Quality by the performance score
          if(performance > PERFORMANCE_ULTRA){
             gRecommend = "Ultra";
@@ -102,5 +116,8 @@ public class Project_Eunyoung_Kim
                             "\nPerformance Score: " + String.format("%,.3f", performance) +
                             "\nRecommended Graphics Quality: " + gRecommend);
       }
+      
+      System.out.printf("\nThe highest performance score was: %,.3f\n", highPerformance);
+      System.out.printf("The lowest performance score was: %,.3f", lowPerformance);
    }
 }
