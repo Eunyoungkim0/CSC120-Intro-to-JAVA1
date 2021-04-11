@@ -50,10 +50,30 @@ public class Project_Eunyoung_Kim
       for(int i=0; i<numComputer; i++){
          System.out.print("\nPlease enter the clock speed (in Megahertz) of your graphics card: ");
          gSpeed = input.nextInt();
+         
+         while(gSpeed < 800 || gSpeed > 2000){
+            System.out.println("The clock speed of graphics card should be between 800 and 2000.");
+            System.out.print("Please enter the clock speed (in Megahertz) of your graphics card: ");
+            gSpeed = input.nextInt();
+         }
+         
          System.out.print("Please enter the clock speed (in Megahertz) of your processor: ");
          cSpeed = input.nextInt();
+         
+         while(cSpeed < 1000 || cSpeed > 5500){
+            System.out.println("The clock speed of processor should be between 1000 and 5500.");
+            System.out.print("Please enter the clock speed (in Megahertz) of your processor: ");
+            cSpeed = input.nextInt();
+         }
+         
          System.out.print("Please enter the number of cores of your processor: ");
          cCore  = input.nextInt();
+         
+         while(cCore < 1 || cCore > 16){
+            System.out.println("The number of cores should be between 1 and 16.");
+            System.out.print("Please enter the number of cores of your processor: ");
+            cCore  = input.nextInt();
+         }
          
          System.out.print("What is the resolution of your monitor?\n" +
                             "\t1.1280x720\n" +
@@ -62,6 +82,11 @@ public class Project_Eunyoung_Kim
                             "\t4.3840x2160\n" +
                             "Please select from the options above: ");
          resolution = input.nextInt();
+         
+         while(resolution < 1 || resolution > 4){
+            System.out.print("Invalid number! Please select from the options above: ");
+            resolution = input.nextInt();
+         }
          
          //Determine multiplier value by the resolution      
          if(resolution == RESOLUTION_1280_720){
